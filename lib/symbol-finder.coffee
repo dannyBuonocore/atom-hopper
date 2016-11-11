@@ -17,8 +17,20 @@ exports.SymbolFinder =
       editor = atom.workspace.getActiveTextEditor()
       pos = editor.getCursorBufferPosition()
       text = editor.lineTextForBufferRow(pos.row)
-      left = text.substring 0, pos.column
-      right = text.substring pos.column
+      leftText = text.substring 0, pos.column
+      rightText = text.substring pos.column
 
-      console.log left
-      console.log right
+      leftRegex = /\s*([A-Za-z0-9_$]+)$/g
+      rightRegex = /^([A-Za-z0-9_$]+)\s*/g
+
+      leftWord = leftRegex.exec(leftText)
+      rightWord = rightRegex.exec(rightText)
+
+      leftWord = if leftWord then leftWord[1] else ''
+      rightWord = if rightWord then rightWord[1] else ''
+
+      word = leftWord + rightWord
+
+      console.log 'Current symbol: ' + word
+
+      return word
