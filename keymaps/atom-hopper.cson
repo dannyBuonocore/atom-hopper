@@ -9,3 +9,4 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
   'ctrl-alt-o': 'atom-hopper:toggle'
+  'ctrl-p': 'atom-hopper:search'

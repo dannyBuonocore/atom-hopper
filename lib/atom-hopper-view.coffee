@@ -33,7 +33,7 @@ class AtomHopperView
     rows = []
     for i in [1..5]
       rows.push tr [
-        th(i)
+        th i
         td rand_n()
         td rand_n()
         td rand_n()

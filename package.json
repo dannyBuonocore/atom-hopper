@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "atom-hopper:toggle"
+    "atom-workspace": ["atom-hopper:toggle", "atom-hopper:search"]
   },
   "repository": "https://github.com/atom/atom-hopper",
   "license": "MIT",
