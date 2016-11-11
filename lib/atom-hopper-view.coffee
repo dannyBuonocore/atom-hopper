@@ -7,7 +7,7 @@ class AtomHopperView
 
     # Create message element
     message = document.createElement('div')
-    message.textContent = "The AtomHopper package is Alive! It's ALIVE!"
+    message.textContent = "Atom Hopper"
     message.classList.add('message')
     @element.appendChild(message)
 
