@@ -41,4 +41,4 @@ module.exports = AtomHopper =
     console.log '@search'
     if not @modalPanel.isVisible()
       @modalPanel.show()
-    @atomHopperView.addSymbol @symbolFinder.getCurrentSymbol()
+    @atomHopperView.addSymbols @symbolFinder.getSymbolsOnLine()

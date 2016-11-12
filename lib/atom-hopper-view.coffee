@@ -33,7 +33,7 @@ class AtomHopperView
   # Creates an html table in the bottom panel containing the symbols.
   # @param symbols:   The list of symbols to populate the table with.
   #############################################################################
-  createTable: (symbol) ->
+  createTable: (symbols) ->
 
     @usageTable.innerHTML = ''
 
@@ -54,9 +54,9 @@ class AtomHopperView
     header_row = tr (th s for s in header_cols)
 
     rows = []
-    for i in [1..5]
+    for i in [1..symbols.length]
       rows.push tr [
-        th symbol
+        th symbols[i]
         td rand_n()
         td rand_n()
         td rand_n()
@@ -64,6 +64,6 @@ class AtomHopperView
 
     @usageTable.innerHTML = table header_row, rows
 
-  addSymbol: (symbol) ->
-    console.log 'Adding symbol ' + symbol
-    @createTable(symbol)
+  addSymbols: (symbols) ->
+    console.log 'Adding symbols ' + symbols
+    @createTable(symbols)
