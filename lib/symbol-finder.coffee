@@ -20,16 +20,13 @@ exports.SymbolFinder =
       leftText = text.substring 0, pos.column
       rightText = text.substring pos.column
 
-      leftRegex = /\s*([A-Za-z0-9_$]+)$/g
-      rightRegex = /^([A-Za-z0-9_$]+)\s*/g
+      left = /\s*([A-Za-z0-9_$]+)$/g.exec(leftText)
+      right = /^([A-Za-z0-9_$]+)\s*/g.exec(rightText)
 
-      leftWord = leftRegex.exec(leftText)
-      rightWord = rightRegex.exec(rightText)
+      left = if left then left[1] else ''
+      right = if right then right[1] else ''
 
-      leftWord = if leftWord then leftWord[1] else ''
-      rightWord = if rightWord then rightWord[1] else ''
-
-      word = leftWord + rightWord
+      word = left + right
 
       console.log 'Current symbol: ' + word
 

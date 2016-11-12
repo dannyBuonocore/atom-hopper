@@ -1,6 +1,9 @@
 module.exports =
 class AtomHopperView
   constructor: (serializedState) ->
+
+    console.log 'Atom-Hopper-View constructor'
+
     # Create root element
     @element = document.createElement('div')
     @element.classList.add('atom-hopper')
@@ -12,14 +15,34 @@ class AtomHopperView
     @element.appendChild(title)
 
     # Create the usage table
-    usageTable = document.createElement('div')
+    @usageTable = document.createElement('div')
+    @element.appendChild(@usageTable)
+
+
+  # Returns an object that can be retrieved when package is activated
+  serialize: ->
+
+  # Tear down any state and detach
+  destroy: ->
+    @element.remove()
+
+  getElement: ->
+    @element
+
+  #############################################################################
+  # Creates an html table in the bottom panel containing the symbols.
+  # @param symbols:   The list of symbols to populate the table with.
+  #############################################################################
+  createTable: (symbol) ->
+
+    @usageTable.innerHTML = ''
 
     table = (header_row, rows) ->
       """
       <table>
       #{header_row}
       #{rows.join '\n'}
-      </table>
+      </tablej>
       """
 
     tr = (cells) -> "<tr>#{cells.join ''}</tr>"
@@ -33,23 +56,14 @@ class AtomHopperView
     rows = []
     for i in [1..5]
       rows.push tr [
-        th i
+        th symbol
         td rand_n()
         td rand_n()
         td rand_n()
       ]
 
-    @element.innerHTML = table header_row, rows
+    @usageTable.innerHTML = table header_row, rows
 
-    @element.appendChild(usageTable)
-
-
-  # Returns an object that can be retrieved when package is activated
-  serialize: ->
-
-  # Tear down any state and detach
-  destroy: ->
-    @element.remove()
-
-  getElement: ->
-    @element
+  addSymbol: (symbol) ->
+    console.log 'Adding symbol ' + symbol
+    @createTable(symbol)
