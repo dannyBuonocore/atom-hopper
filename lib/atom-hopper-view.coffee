@@ -42,7 +42,7 @@ class AtomHopperView
       <table>
       #{header_row}
       #{rows.join '\n'}
-      </tablej>
+      </table>
       """
 
     tr = (cells) -> "<tr>#{cells.join ''}</tr>"
@@ -54,7 +54,7 @@ class AtomHopperView
     header_row = tr (th s for s in header_cols)
 
     rows = []
-    for i in [1..symbols.length]
+    for i in [0..symbols.length - 1]
       rows.push tr [
         th symbols[i]
         td rand_n()

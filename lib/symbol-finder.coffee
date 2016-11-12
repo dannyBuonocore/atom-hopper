@@ -24,7 +24,7 @@ exports.SymbolFinder =
     # parses each half and combines the endpoints to form the symbol name.
     ###########################################################################
     getCurrentSymbol: ->
-      text =  getLineText()
+      text = @getLineText()
       leftText = text.substring 0, pos.column
       rightText = text.substring pos.column
 
@@ -46,7 +46,7 @@ exports.SymbolFinder =
     ###########################################################################
     getSymbolsOnLine: ->
       text = @getLineText()
-      console.log text
+      console.log 'text= ' + text
       re = /\.*([A-Za-z_$][A-Za-z0-9_$]+)\.*/g
       symbols = []
 
