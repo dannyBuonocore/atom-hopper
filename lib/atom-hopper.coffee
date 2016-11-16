@@ -10,7 +10,7 @@ module.exports = AtomHopper =
 
   activate: (state) ->
     @atomHopperView = new AtomHopperView(state.atomHopperViewState)
-    @symbolFinder = new SymbolFinder('Symbol Finder Dawg')
+    @symbolFinder = new SymbolFinder('JS Symbol Finder')
     @modalPanel = atom.workspace.addBottomPanel(item: @atomHopperView.getElement(), visible: false)
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
@@ -31,14 +31,12 @@ module.exports = AtomHopper =
     atomHopperViewState: @atomHopperView.serialize()
 
   toggle: ->
-    console.log '@toggle'
     if @modalPanel.isVisible()
       @modalPanel.hide()
     else
       @modalPanel.show()
 
   search: ->
-    console.log '@search'
     if not @modalPanel.isVisible()
       @modalPanel.show()
-    @atomHopperView.addSymbols @symbolFinder.getSymbolsOnLine()
+    @atomHopperView.addSymbols @symbolFinder.getCurrentSymbol()

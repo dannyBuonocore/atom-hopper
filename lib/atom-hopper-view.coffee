@@ -18,7 +18,6 @@ class AtomHopperView
     @usageTable = document.createElement('div')
     @element.appendChild(@usageTable)
 
-
   # Returns an object that can be retrieved when package is activated
   serialize: ->
 
