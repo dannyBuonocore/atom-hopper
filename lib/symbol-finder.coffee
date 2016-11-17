@@ -57,7 +57,11 @@ exports.SymbolFinder =
       console.log 'Current symbol: ' + word
       console.log 'With scope: ' + wordWithScope
 
-      return word
+      result =
+        symbol: word
+        scope: wordWithScope
+
+      return result
 
     ###########################################################################
     # Collects and returns all the symbols on the current line
