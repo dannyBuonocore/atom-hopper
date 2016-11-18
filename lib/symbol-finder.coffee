@@ -18,7 +18,7 @@ exports.SymbolFinder =
       return editor.lineTextForBufferRow pos.row
 
     ###########################################################################
-    # Returns the Scope Descriptor for the currnet buffer position.
+    # Returns the Scope Descriptor for the current buffer position.
     ###########################################################################
     getLineScope: ->
       editor = atom.workspace.getActiveTextEditor()
@@ -52,10 +52,6 @@ exports.SymbolFinder =
 
       word = left + right
       wordWithScope = leftWithScope + right
-
-      console.log @getLineScope().scopes
-      console.log 'Current symbol: ' + word
-      console.log 'With scope: ' + wordWithScope
 
       result =
         symbol: word

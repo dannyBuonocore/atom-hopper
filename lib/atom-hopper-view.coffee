@@ -2,8 +2,6 @@ module.exports =
 class AtomHopperView
   constructor: (serializedState) ->
 
-    console.log 'Atom-Hopper-View constructor'
-
     # Create root element
     @element = document.createElement('div')
     @element.classList.add('atom-hopper')
@@ -63,7 +61,6 @@ class AtomHopperView
 
   #TODO: Not functional.
   addSymbols: (symbols) ->
-    console.log 'Adding symbols ' + symbols
     @createTable(symbols, ['Symbol', 'Definition', 'Usages', 'Description'])
 
   #############################################################################
@@ -71,5 +68,4 @@ class AtomHopperView
   # @param symbol:    A JSON object containing information on the symbol.
   #############################################################################
   addSymbol: (symbol) ->
-    console.log 'Adding symbol ' + symbol
     @createTable(['Symbol', 'Scope', 'Definition', 'Usages', 'Description'], [[symbol.symbol, symbol.scope]])
